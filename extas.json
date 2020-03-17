@@ -1,0 +1,82 @@
+{
+  "name": "extas/alice",
+  "package_classes": [
+    {
+      "interface": "extas\\interfaces\\yandex\\skills\\IAliceSkillRepository",
+      "class": "extas\\components\\yandex\\skills\\AliceSkillRepository"
+    },
+    {
+      "interface": "extas\\interfaces\\yandex\\skills\\steps\\IStepRepository",
+      "class": "extas\\components\\yandex\\skills\\steps\\StepRepository"
+    },
+    {
+      "interface": "extas\\interfaces\\yandex\\skills\\scenarios\\IScenarioRepository",
+      "class": "extas\\components\\yandex\\skills\\scenarios\\ScenarioRepository"
+    },
+    {
+      "interface": "extas\\interfaces\\yandex\\responses\\cards\\ICardRepository",
+      "class": "extas\\components\\yandex\\responses\\cards\\CardRepository"
+    },
+    {
+      "interface": "extas\\interfaces\\yandex\\responses\\buttons\\IButtonRepository",
+      "class": "extas\\components\\yandex\\responses\\buttons\\ButtonRepository"
+    }
+  ],
+  "plugins": [
+    {
+      "class": "extas\\components\\plugins\\alice\\PluginInstallSkills",
+      "stage": "extas.install"
+    },
+    {
+      "class": "extas\\components\\plugins\\alice\\PluginInstallSteps",
+      "stage": "extas.install"
+    },
+    {
+      "class": "extas\\components\\plugins\\alice\\PluginInstallScenarios",
+      "stage": "extas.install"
+    },
+    {
+      "class": "extas\\components\\plugins\\alice\\PluginInstallCards",
+      "stage": "extas.install"
+    },
+    {
+      "class": "extas\\components\\plugins\\alice\\PluginInstallButtons",
+      "stage": "extas.install"
+    },
+    {
+      "class": "extas\\components\\plugins\\alice\\skills\\PluginSkillScenario",
+      "stage": "alice.skill.run"
+    },
+    {
+      "class": "extas\\components\\plugins\\alice\\responses\\PluginResponseCardBuildSingle",
+      "stage": "alice.card.build.BigImage"
+    },
+    {
+      "class": "extas\\components\\plugins\\alice\\PluginCallFileJson",
+      "stage": "alice.call.get"
+    },
+    {
+      "class": "extas\\components\\plugins\\alice\\PluginCallPostJson",
+      "stage": "alice.call.get"
+    }
+  ],
+  "extensions": [
+    {
+      "interface": "extas\\interfaces\\extensions\\alice\\responses\\cards\\ICardExtensionImageSingle",
+      "class": "extas\\components\\extensions\\alice\\responses\\cards\\CardExtensionImageSingle",
+      "subject": "alice.response.card",
+      "methods": [
+        "getImageId", "setImageId", "getButton", "setButton",
+        "getTitle", "setTitle", "getDescription", "setDescription"
+      ]
+    },
+    {
+      "interface": "extas\\interfaces\\extensions\\alice\\responses\\cards\\ICardExtensionImageList",
+      "class": "extas\\components\\extensions\\alice\\responses\\cards\\CardExtensionImageList",
+      "subject": "alice.response.card",
+      "methods": [
+        "getHeader", "getItems", "getFooter", "setHeader", "setItems", "setFooter", "addItem"
+      ]
+    }
+  ]
+}
