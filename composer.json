@@ -3,7 +3,7 @@
   "description": "Yandex.Alice Extas package",
   "require": {
     "jeyroik/extas-installer": "2.*",
-    "jeyroik/extas-base": "1.*",
+    "jeyroik/extas-base": "2.*",
     "vlucas/phpdotenv": "*"
   },
   "autoload": {
